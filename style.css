@@ -30,3 +30,7 @@ body {
   width: 100%;
   flex-grow: 1;
 }
+
+.color {
+  background-color: #dc793e;
+}
