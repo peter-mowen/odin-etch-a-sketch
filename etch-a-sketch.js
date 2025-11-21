@@ -1,6 +1,7 @@
 const CONTAINER_ID = "etch-a-sketch-container"
 
-const MIN_NUM_OF_SQUARES_PER_SIDE = 16;
+const MIN_NUM_OF_SQUARES_PER_SIDE = 1;
+const INITIAL_NUM_OF_SQUARES = 16;
 const MAX_NUM_OF_SQUARES_PER_SIDE = 100;
 
 const SQUARE_ID_BASE = 'square';
@@ -54,4 +55,4 @@ button.addEventListener('click', (event) => {
   createEtchASketchBoard(newNumberOfSquaresPerSide);
 });
 
-createEtchASketchBoard(MIN_NUM_OF_SQUARES_PER_SIDE);
+createEtchASketchBoard(INITIAL_NUM_OF_SQUARES);
