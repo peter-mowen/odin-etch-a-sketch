@@ -34,3 +34,7 @@ body {
 .color {
   background-color: #dc793e;
 }
+
+.button {
+  margin-bottom: 20px;
+}
