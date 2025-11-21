@@ -10,7 +10,6 @@ body {
 }
 
 #etch-a-sketch-container {
-  border: 1px solid black;
   width: 512px;
   aspect-ratio: 1 / 1;
   display: flex;
