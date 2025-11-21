@@ -40,12 +40,11 @@ button.addEventListener('click', (event) => {
   let promptText = promptBase;
   do {
     let userInput = prompt(promptText);
-    console.log(userInput);
     let userInputAsNumber = Number(userInput);
     let isInRange = (userInputAsNumber >= MIN_NUM_OF_SQUARES_PER_SIDE) &&
                     (userInputAsNumber <= MAX_NUM_OF_SQUARES_PER_SIDE);
 
-    if (userInputAsNumber &&  isInRange) {
+    if (userInputAsNumber && isInRange) {
       newNumberOfSquaresPerSide = userInputAsNumber;
     } else {
       promptText = `"${userInput}" is not in range. ${promptBase}`;
