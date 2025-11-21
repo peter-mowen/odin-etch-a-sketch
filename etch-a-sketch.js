@@ -17,6 +17,7 @@ container.addEventListener('mouseover', (event) => {
 });
 
 function createEtchASketchBoard(squaresPerSide) {
+  container.replaceChildren();
   for (let i = 0; i < squaresPerSide; ++i) {
     let column = document.createElement('div');
     column.classList.add('column');
@@ -51,6 +52,7 @@ button.addEventListener('click', (event) => {
     }
   } while (newNumberOfSquaresPerSide === 0);
   
+  createEtchASketchBoard(newNumberOfSquaresPerSide);
 });
 
 createEtchASketchBoard(MIN_NUM_OF_SQUARES_PER_SIDE);
