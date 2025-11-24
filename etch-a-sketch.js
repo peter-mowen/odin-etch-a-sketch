@@ -13,7 +13,16 @@ container.addEventListener('mouseover', (event) => {
 
   if (targetID.startsWith(SQUARE_ID_BASE)) {
     let square = document.querySelector(`#${targetID}`);
-    square.classList.add("color");
+
+    if (!square.classList.contains("color")) {
+      square.classList.add("color");
+    } else {
+      let alpha = parseFloat(
+        getComputedStyle(square).getPropertyValue('--alpha')
+      );
+      alpha = Math.min(alpha + 0.1, 1);
+      square.style.setProperty('--alpha', alpha);
+    }
   }
 });
 

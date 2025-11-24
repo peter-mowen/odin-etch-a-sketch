@@ -31,7 +31,8 @@ body {
 }
 
 .color {
-  background-color: #dc793e;
+  --alpha: 0.1;
+  background-color: rgb(220 121 62 / var(--alpha));
 }
 
 .button {
