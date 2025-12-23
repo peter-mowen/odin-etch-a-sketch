@@ -1,18 +1,15 @@
 const CONTAINER_ID = "etch-a-sketch-container"
+const SQUARE_CLASS_NAME = 'square';
 
 const MIN_NUM_OF_SQUARES_PER_SIDE = 1;
 const INITIAL_NUM_OF_SQUARES = 16;
 const MAX_NUM_OF_SQUARES_PER_SIDE = 100;
 
-const SQUARE_ID_BASE = 'square';
-
 let container = document.querySelector(`#${CONTAINER_ID}`);
 
 container.addEventListener('mouseover', (event) => {
-  let targetID = event.target.id;
-
-  if (targetID.startsWith(SQUARE_ID_BASE)) {
-    let square = document.querySelector(`#${targetID}`);
+  if (event.target.classList.contains(SQUARE_CLASS_NAME)) {
+    let square = event.target;
 
     if (!square.classList.contains("color")) {
       square.classList.add("color");
@@ -33,9 +30,8 @@ function createEtchASketchBoard(squaresPerSide) {
     column.classList.add('column');
     for (let j = 0; j < squaresPerSide; j++) {
       let square = document.createElement('div');
-      square.classList.add(SQUARE_ID_BASE);
+      square.classList.add(SQUARE_CLASS_NAME);
       square.style.width = `${container.clientWidth / squaresPerSide}px`;
-      square.id = `square-${i}-${j}`;
       column.appendChild(square);
     }
     container.appendChild(column);
