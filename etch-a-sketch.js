@@ -1,18 +1,17 @@
-const CONTAINER_ID = "etch-a-sketch-container"
 const SQUARE_CLASS_NAME = 'square';
 
 const MIN_NUM_OF_SQUARES_PER_SIDE = 1;
 const INITIAL_NUM_OF_SQUARES = 16;
 const MAX_NUM_OF_SQUARES_PER_SIDE = 100;
 
-let container = document.querySelector(`#${CONTAINER_ID}`);
+let container = document.querySelector('#etch-a-sketch-container');
 
 container.addEventListener('mouseover', (event) => {
   if (event.target.classList.contains(SQUARE_CLASS_NAME)) {
     let square = event.target;
 
-    if (!square.classList.contains("color")) {
-      square.classList.add("color");
+    if (!square.classList.contains('color')) {
+      square.classList.add('color');
     } else {
       let alpha = parseFloat(
         getComputedStyle(square).getPropertyValue('--alpha')
@@ -38,11 +37,12 @@ function createEtchASketchBoard(squaresPerSide) {
   }
 }
 
-let button = document.querySelector("#adjust-size-button");
+let button = document.querySelector('#adjust-size-button');
 
 button.addEventListener('click', (event) => {
   let newNumberOfSquaresPerSide = 0;
-  const promptBase = `Enter an integer between ${MIN_NUM_OF_SQUARES_PER_SIDE} and ${MAX_NUM_OF_SQUARES_PER_SIDE} (inclusive)`
+  const promptBase =
+    `Enter an integer between ${MIN_NUM_OF_SQUARES_PER_SIDE} and ${MAX_NUM_OF_SQUARES_PER_SIDE} (inclusive)`;
   let promptText = promptBase;
   do {
     let userInput = prompt(promptText);
