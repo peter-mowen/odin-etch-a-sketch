@@ -40,24 +40,29 @@ function createEtchASketchBoard(squaresPerSide) {
 let button = document.querySelector('#adjust-size-button');
 
 button.addEventListener('click', (event) => {
-  let newNumberOfSquaresPerSide = 0;
   const promptBase =
     `Enter an integer between ${MIN_NUM_OF_SQUARES_PER_SIDE} and ${MAX_NUM_OF_SQUARES_PER_SIDE} (inclusive)`;
   let promptText = promptBase;
+
+  let keepPrompting = true;
   do {
     let userInput = prompt(promptText);
-    let userInputAsNumber = Number(userInput);
-    let isInRange = (userInputAsNumber >= MIN_NUM_OF_SQUARES_PER_SIDE) &&
-                    (userInputAsNumber <= MAX_NUM_OF_SQUARES_PER_SIDE);
 
-    if (userInputAsNumber && isInRange) {
-      newNumberOfSquaresPerSide = userInputAsNumber;
+    if (userInput) {
+      let userInputAsNumber = Number(userInput);
+      let isInRange = (userInputAsNumber >= MIN_NUM_OF_SQUARES_PER_SIDE) &&
+                      (userInputAsNumber <= MAX_NUM_OF_SQUARES_PER_SIDE);
+
+      if (userInputAsNumber && isInRange) {
+        createEtchASketchBoard(userInputAsNumber);
+        keepPrompting = false;
+      } else {
+        promptText = `"${userInput}" is not in range. ${promptBase}`;
+      }
     } else {
-      promptText = `"${userInput}" is not in range. ${promptBase}`;
+      keepPrompting = false;
     }
-  } while (newNumberOfSquaresPerSide === 0);
-  
-  createEtchASketchBoard(newNumberOfSquaresPerSide);
+  } while (keepPrompting);
 });
 
 createEtchASketchBoard(INITIAL_NUM_OF_SQUARES);
